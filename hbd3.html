@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  #hearts{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+.heart{
+  position:absolute;
+  font-size:20px;
+  animation: float 1.2s ease-out forwards;
+}
+
+@keyframes float{
+  0%{
+    transform:translateY(0) scale(1);
+    opacity:1;
+  }
+  100%{
+    transform:translateY(-80px) scale(1.8);
+    opacity:0;
+  }
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  height:100%;
+  background:black;
+  color:#ffb6d9;
+  font-family:monospace;
+  overflow:hidden;
+}
+
+.container{
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+pre{
+  font-size:11px;
+  line-height:1.25;
+  white-space:pre;
+  max-width:100vw;
+}
+</style>
+</head>
+
+<body>
+<div id="hearts"></div>
+
+<!-- AUDIO DITAMBAH (TIDAK MENGGANGGU SCRIPT) -->
+<audio id="music" src="music2.mp3" loop></audio>
+
+
+<div class="container">
+  <pre id="output"></pre>
+</div>
+
+<script>
+const text = `
+
+           _..._  ,s$$$s.                                                                                          _..._  ,s$$$s.
+         .$$$$$$$s$$ss$$$$,                                                                                     .$$$$$$$s$$ss$$$$,
+         $$$sss$$$$s$$$$$$$                                                                                     $$$sss$$$$s$$$$$$$
+         $$ss$$$$$$$$$$$$$$                                   (             )                                   $$ss$$$$$$$$$$$$$$
+         '$$$s$$$$$$$$$$$$'                           )      (*)           (*)      (                           '$$$s$$$$$$$$$$$$'
+          '$$$$$$$$$$$$$$'                           (*)      |             |      (*)                           '$$$$$$$$$$$$$$'
+            S$$$$$$$$$$$'                             |      |~|           |~|      |                              S$$$$$$$$$$$'
+             '$$$$$$$$$'                             |~|     | |           | |     |~|                              '$$$$$$$$$'
+               '$$$$$'                               | |     | |           | |     | |                                '$$$$$'
+                '$$$'                               ,| |a@@@@| |@@@@@@@@@@@| |@@@@a| |.                                '$$$'
+                  ;                            .,a@@@| |@@@@@| |@@@@@@@@@@@| |@@@@@| |@@@@a,.                            ;
+                 ;                           ,a@@@@@@| |@@@@@@@@@@@@.@@@@@@@@@@@@@@| |@@@@@@@a,                         ; 
+                 ;                          a@@@@@@@@@@@@@@@@@@@@@' . \`@@@@@@@@@@@@@@@@@@@@@@@@a                        ;
+                 ',                         ;\`@@@@@@@@@@@@@@@@@@'   .   \`@@@@@@@@@@@@@@@@@@@@@';                        ',
+                  ;                         ;@@@\`@@@@@@@@@@@@@'     .     \`@@@@@@@@@@@@@@@@'@@@;                         ;
+                 ,'                         ;@@@;,.aaaaaaaaaa       .       aaaaa,,aaaaaaa,;@@@;                        ,'
+                 ;                          ;;@;;;;@@@@@@@@;@      @.@      ;@@@;;;@@@@@@;;;;@@;                        ;
+                 ',                         ;;;;;;;@@@@;@@;;@    @@ . @@    ;;@;;;;@@;@@@;;;;;;;                        ',
+                  ',                        ;;;;;;;;@@;;;;;;;  @@   .   @@  ;;;;;;;;;;;@@;;;;@;;                         ',
+                   ;                        ;;;;;;;;;;;;;;;;;@@     .     @@;;;;;;;;;;;;;;;;@@@;                          ;
+                  '                     ,%%%;;;;;;;;@;;;;;;;;       .       ;;;;;;;;;;;;;;;;@@;;%%%,                      '
+                                     .%%%%%%;;;;;;;@@;;;;;;;;     ,%%%,     ;;;;;;;;;;;;;;;;;;;;%%%%%%,
+                                    .%%%%%%%;;;;;;;@@;;;;;;;;   ,%%%%%%%,   ;;;;;;;;;;;;;;;;;;;;%%%%%%%,
+                                    %%%%%%%%\\\`;;;;;;;;;;;;;;;;  %%%%%%%%%%%  ;;;;;;;;;;;;;;;;;;;'%%%%%%%%
+                                    %%%%%%%%%%%%\\\`;;;;;;;;;;;;,%%%%%%%%%%%%%,;;;;;;;;;;;;;;;'%%%%%%%%%%%%
+                                    \\\`%%%%%%%%%%%%%%%%%,,,,,,,%%%%%%%%%%%%%%%,,,,,,,%%%%%%%%%%%%%%%%%%%%'
+                                      \\\`%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
+                                          \\\`%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
+                                                 """"""""""""""\`,,,,,,,,,'"""""""""""""""""
+                                                                \\\`%%%%%%%'
+                                                                 \\\`%%%%%'
+                                                                   %%% 
+                                                                  %%%%%
+                                                               .,%%%%%%%,.
+                                                          ,%%%%%%%%%%%%%%%%%%%,
+
+
+ /$$   /$$                                               /$$       /$$             /$$     /$$             /$$                                                      
+| $$  | $$                                              | $$      |__/            | $$    | $$            | $$                                                      
+| $$  | $$  /$$$$$$   /$$$$$$   /$$$$$$  /$$   /$$      | $$$$$$$  /$$  /$$$$$$  /$$$$$$  | $$$$$$$   /$$$$$$$  /$$$$$$  /$$   /$$                                  
+| $$$$$$$$ |____  $$ /$$__  $$ /$$__  $$| $$  | $$      | $$__  $$| $$ /$$__  $$|_  $$_/  | $$__  $$ /$$__  $$ |____  $$| $$  | $$                                  
+| $$__  $$  /$$$$$$$| $$  \\ $$| $$  \\ $$| $$  | $$      | $$  \\ $$| $$| $$  \\__/  | $$    | $$  \\ $$| $$  | $$  /$$$$$$$| $$  | $$                                  
+| $$  | $$ /$$__  $$| $$  | $$| $$  | $$| $$  | $$      | $$  | $$| $$| $$        | $$ /$$| $$  | $$| $$  | $$ /$$__  $$| $$  | $$                                  
+| $$  | $$|  $$$$$$$| $$$$$$$/| $$$$$$$/|  $$$$$$$      | $$$$$$$/| $$| $$        |  $$$$/| $$  | $$|  $$$$$$$|  $$$$$$$|  $$$$$$$                                  
+|__/  |__/ \\_______/| $$____/ | $$____/  \\____  $$      |_______/ |__/|__/         \\___/  |__/  |__/ \\_______/ \\_______/ \\____  $$                                  
+                    | $$      | $$       /$$  | $$                                                                       /$$  | $$                                  
+                    | $$      | $$      |  $$$$$$/                                                                      |  $$$$$$/                                  
+                    |__/      |__/       \\______/                                                                        \\______/                                   
+
+`;
+
+let i = 0
+const speed =0
+const out = document.getElementById("output");
+
+function typeWriter(){
+  if(i < text.length){
+    out.textContent += text[i];
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+typeWriter();
+document.addEventListener("click", e => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = "🥳";
+  heart.style.left = e.clientX + "px";
+  heart.style.top = e.clientY + "px";
+
+  document.getElementById("hearts").appendChild(heart);
+
+  setTimeout(() => heart.remove(), 1200);
+});
+
+</script>
+
+<!-- SCRIPT MUSIK TERPISAH, TIDAK MENYENTUH SCRIPT UTAMA -->
+<script>
+const music = document.getElementById("music");
+document.addEventListener("pointerdown", () => {
+  music.play();
+}, { once:true });
+</script>
+
+</body>
+</html>
